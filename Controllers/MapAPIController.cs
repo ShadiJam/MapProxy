@@ -23,8 +23,8 @@ public class MapAPIController : Controller {
         // string result = await client.GetStringAsync()
         // JSON...
        
-        MapRO mapView = await API.GetData<MapRO>($"https://maps.googleapis.com/maps/api/staticmap?zoom={13}&size={800x600}&maptype=roadmap&latlng={latlng}");
-        
+        MapRO mapView = await API.GetData<MapRO>($"https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=600x800&maptype=roadmap&latlng={latlng}");
+        return View(mapView);
     }
 
     

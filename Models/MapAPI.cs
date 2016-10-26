@@ -34,7 +34,7 @@ public class Size
     public int height { get; set; }
 }
 
-public class Location
+public class LocationMap
 {
     public double lat { get; set; }
     public double lng { get; set; }
@@ -44,7 +44,7 @@ public class Marker
 {
     public string color { get; set; }
     public string label { get; set; }
-    public Location location { get; set; }
+    public LocationMap location { get; set; }
 }
 
 public class MapRO
