@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-
+/*
 internal class Student {
     public string name;
 }
-
+*/
 [Route("/")]
 public class HomeController : Controller
 {
