@@ -14,13 +14,17 @@ public class MapAPIController : Controller {
     [HttpGet("{search}")]
     // http://localhost:5000/api/map/Woodbar?size=800x600
   
-    public async Task<IActionResult> Get(string search = "", string size = "800x600"){
+    public async Task<IActionResult> Get(string search, string size){
         SearchRO result = await API.GetData<SearchRO>($"https://maps.googleapis.com/maps/api/geocode/json?address={search}&key=AIzaSyBpB11kqRshs-VhrcePC-NP_i_QCej7m-c");
         double[] latlng = {result.results.ElementAt(0).geometry.location.lat, result.results.ElementAt(0).geometry.location.lng};
+        return View(latlng);
+    }
+}
+     //   string result = @"{}
    //     return Ok(new {search = search, size = size});
         // string result = await client.GetStringAsync()
         // JSON...
-       int zoom = 13;
+ /*      int zoom = 13;
        string mapSize = "800x600";
        string color = "green";
        MapRO mapView = await API.GetData<MapRO>($"https://maps.googleapis.com/maps/api/staticmap?zoom={zoom}&size={mapSize}&maptype=roadmap&markers=color:{color}|label:X|{latlng}");
@@ -30,3 +34,4 @@ public class MapAPIController : Controller {
     
 }
 //all classes go under models
+*/

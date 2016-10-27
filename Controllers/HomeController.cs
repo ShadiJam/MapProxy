@@ -17,7 +17,7 @@ public class HomeController : Controller
     {
         ViewData["Message"] = "Some extra info can be sent to the view";
         ViewData["Username"] = username;
-        return View(); // View method takes an object as a "model", typicall called a ViewModel
+        return View(); // View method takes an object as a "model", typically called a ViewModel
     }
 
     [HttpGet("/Errors/{errCode}")]

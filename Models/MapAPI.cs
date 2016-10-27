@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 // geo locator latlng 
 
-    public class Location
+   public class Location
         {
         public double lat { get; set; }
         public double lng { get; set; }
@@ -27,7 +27,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
         {
         public List<Result> results { get; set; }
         }
-
+/*
 public class Size
 {
     public int width { get; set; }
@@ -44,7 +44,7 @@ public class Marker
 {
     public string color { get; set; }
     public string label { get; set; }
-    public LocationMap location { get; set; }
+    public LocationMap locationmap { get; set; }
 }
 
 public class MapRO
@@ -72,7 +72,7 @@ public class MapRO
 // public static getUrl
 
 
-
+*/
 
 
 
