@@ -52,7 +52,7 @@ namespace ResultLine {
     {
         public string color { get; set; } = "red";
         public string label { get; set; } = "X";
-        public LocationMap locationmap { get; set; }
+        public LocationMap locationmap { get; set; } 
     }
 
     public class MapRObject
