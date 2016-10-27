@@ -129,3 +129,4 @@ public static class Seed
         Console.WriteLine(db.Posts.ToList().Count);
     }
 }
+ 
