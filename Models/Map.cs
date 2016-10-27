@@ -8,38 +8,63 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
 
-// class structure for result 
-    public class Size
-        {
-        public int width { get; set; } = 800;
-        public int height { get; set; } = 600;
+public interface IBizzSearch {
+    void add(Search s);
+    IEnumerable<Search> getAll();
+    Search get(int id);
+    Search update(int id, Search s);
+    void delete(int id);
+}
+
+public class Search {
+    public int SearchId;
+    public string imageUrl;
+    public string timeStamp;
+    public string searchTerm;
+    public int zoomLevel;
+    public int width;
+    public int height;
+    public double lat;
+    public double lng;
+    public string Location = "{lat},{lng}";
+    public string color;
+    public string label;
+    public Search() {
+        SearchId = new Random().Next();
+    }
+}
+
+public class BizzSearch : IBizzSearch {
+    private List<Search> searches = new List<Search>();
+    public BizzSearch() {
+        searches.Add(new Search { SearchId = 1, searchTerm = "Woodbar"});
+        
+    }
+    public void add(Search s){
+        searches.Add(s);
+    }
+    public IEnumerable<Search> getAll() {
+        return searches;
+    }
+    public Search get(int id) {
+        return searches.First(s=> s.SearchId == id);
+    }
+    public Search update(int id, Search s){
+        Search toUpdate = searches.First(x => x.SearchId == id);
+        if(toUpdate != null){
+            searches.Remove(toUpdate);
+            searches.Add(s);
+            return s;
         }
-
-    public class LocationMap
-    {
-        public double lat { get; set; } = 29.736554;
-        public double lng { get; set; } = -95.389975;
+        return null;
     }
-
-    public class Marker
-    {
-        public string color { get; set; } = "red";
-        public string label { get; set; } = "X";
-        public LocationMap locationmap { get; set; }
+    public void delete(int id){
+        Search s = searches.First(x => x.SearchId == id);
+        if(s != null){
+            searches.Remove(s);
+        }
     }
-
-    public class MapRObject
-    {
-        public string imageUrl { get; set; } = "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=600x300&maptype=roadmap&markers=color:red|label:X|29.736554,-95.389975";
-        public string timestamp { get; set; } = DateTime.Now.ToString();
-        public string searchTerm { get; set; } = "woodbar";
-        public int zoomLevel { get; set; } = 13;
-        public Size size { get; set; } 
-        public List<Marker> markers { get; set; }
-    }
-
-
-
+}
 /*
 
 // defines elements of each search term
