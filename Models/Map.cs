@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
 
-public interface IBizzSearch {
+public interface IBizzSearch { //this is how I interact with my bizzsearch dictionary
     void add(Search s);
     IEnumerable<Search> getAll();
     Search get(int SearchId);
@@ -26,7 +26,7 @@ public class Search {
     public int height;
     public double lat;
     public double lng;
-    public string Location = "{lat},{lng}";
+    public string LocationMap = "{lat},{lng}";
     public string color;
     public string label;
     public Search() {

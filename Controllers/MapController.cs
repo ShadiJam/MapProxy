@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-[RouteAttribute("api/map")]
+[RouteAttribute("/map")]
 public class MapController : Controller {
     public IBizzSearch bizzSearch;
     public MapController(IBizzSearch b){

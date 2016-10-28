@@ -10,53 +10,17 @@ using Newtonsoft.Json;
 
 [Route("/api/map")]
 public class MapAPIController : Controller {
-    public IBizzSearch bizzSearch;
-    public MapAPIController(IBizzSearch b) {
-        bizzSearch = b;
-    }
-
+   
 
 
     [HttpGet("{searchTerm}")]
-    // http://localhost:5000/api/maps/searches/Woodbar?size=800x600
+    // http://localhost:5000/api/maps/Woodbar?size=800x600
     
-    public async Task<IActionResult> Get(string searchTerm, string size){ // equivalent to create
+    public async Task<IActionResult> Get(string url){ // equivalent to create
+        string address = "woodbar";
         string key = "AIzaSyBRBZtk0JyJrAzmp2i9DklBHhjvKwoI0JE";
-        GeoLocator.SearchRO result = await API.GetData<GeoLocator.SearchRO>($"https://maps.googleapis.com/maps/api/geocode/json?address={searchTerm}&key={key}");
+        GeoLocator.SearchRO result = await API.GetData<GeoLocator.SearchRO>($"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={key}");
         
         return Ok(result);
     }
-
-    
 }
-
-        
-        
-
-
-     //   double[] latlng = {result.results.ElementAt(0).geometry.location.lat, result.results.ElementAt(0).geometry.location.lng};
-       
-        
-        
-
-    //    MapRObject view = await API.GetData<MapRObject>($"https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=600x300&maptype=roadmap&markers=color%3Ared&markers=label%3AX&markers={29.736554%2C-95.389975}");
-    //    return Ok(view);
-    
-    
-   
-
-     //   string result = @"{}
-   //     return Ok(new {search = search, size = size});
-        // string result = await client.GetStringAsync()
-        // JSON...
- /*      int zoom = 13;
-       string mapSize = "800x600";
-       string color = "green";
-       MapRO mapView = await API.GetData<MapRO>($"https://maps.googleapis.com/maps/api/staticmap?zoom={zoom}&size={mapSize}&maptype=roadmap&markers=color:{color}|label:X|{latlng}");
-        return View(mapView);
-    }
-
-    
-}
-//all classes go under models
-*/
