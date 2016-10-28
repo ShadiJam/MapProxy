@@ -11,9 +11,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 public interface IBizzSearch {
     void add(Search s);
     IEnumerable<Search> getAll();
-    Search get(int id);
-    Search update(int id, Search s);
-    void delete(int id);
+    Search get(int SearchId);
+    Search update(int SearchId, Search s);
+    void delete(int SearchId);
 }
 
 public class Search {
@@ -37,7 +37,7 @@ public class Search {
 public class BizzSearch : IBizzSearch {
     private List<Search> searches = new List<Search>();
     public BizzSearch() {
-        searches.Add(new Search { SearchId = 1, searchTerm = "Woodbar"});
+        searches.Add(new Search { searchTerm = "Woodbar"});
         
     }
     public void add(Search s){
@@ -47,10 +47,10 @@ public class BizzSearch : IBizzSearch {
         return searches;
     }
     public Search get(int SearchId) {
-        return searches.First(s=> s.SearchId == id);
+        return searches.First(s=> s.SearchId == SearchId);
     }
     public Search update(int SearchId, Search s){
-        Search toUpdate = searches.First(x => x.SearchId == id);
+        Search toUpdate = searches.First(x => x.SearchId == SearchId);
         if(toUpdate != null){
             searches.Remove(toUpdate);
             searches.Add(s);
@@ -59,7 +59,7 @@ public class BizzSearch : IBizzSearch {
         return null;
     }
     public void delete(int SearchId){
-        Search s = searches.First(x => x.SearchId == id);
+        Search s = searches.First(x => x.SearchId == SearchId);
         if(s != null){
             searches.Remove(s);
         }

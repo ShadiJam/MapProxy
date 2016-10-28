@@ -7,27 +7,27 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-[RouteAttribute("/searches")]
-public class SearchController : Controller {
-    private IBizzSearch bizzSearch;
-    public SearchController(IBizzSearch b){
+[RouteAttribute("api/map")]
+public class MapController : Controller {
+    public IBizzSearch bizzSearch;
+    public MapController(IBizzSearch b){
         bizzSearch = b;
     }
 [HttpGet]
 public IActionResult ReadAll(){
     return View(bizzSearch);
     }
-[HttpGetAttribute("{id}")]
-public IActionResult ReadOne(int id){
-    var search = bizzSearch.get(id);
+[HttpGetAttribute("{SearchId}")]
+public IActionResult ReadOne(int SearchId){
+    var search = bizzSearch.get(SearchId);
     if(search == null)
     return NotFound();
 
     return View(search);
     }
-[HttpGetAttribute("{id}/edit")]
-public IActionResult Edit(int id){
-    var s = bizzSearch.get(id);
+[HttpGetAttribute("{SearchId}/edit")]
+public IActionResult Edit(int SearchId){
+    var s = bizzSearch.get(SearchId);
     if(s == null)
     return Redirect("/searches");
     return View(s);
