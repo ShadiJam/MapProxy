@@ -8,23 +8,26 @@ using System.Net.Http;
 using Newtonsoft.Json;
 
 
-[Route("/api/map")]
-public class MapAPIController : Controller {
-//    private IBizzSearch searches;
-//    public MapAPIController(IBizzSearch s) {
-//        searches = s;
-//    }
+[Route("/api/searches")]
+public class SearchAPIController : Controller {
+    private IBizzSearch bizzSearch;
+    public SearchAPIController(IBizzSearch b) {
+        bizzSearch = b;
+    }
+
+
 
     [HttpGet("{search}")]
     // http://localhost:5000/api/map/Woodbar?size=800x600
     
-    public async Task<IActionResult> GetData(string url){
+    public async Task<IActionResult> GetData(string searchTerm){ // equivalent to create
         string key = "AIzaSyBRBZtk0JyJrAzmp2i9DklBHhjvKwoI0JE";
         string searchTerm = "woodbar";
         GeoLocator.SearchRO result = await API.GetData<GeoLocator.SearchRO>($"https://maps.googleapis.com/maps/api/geocode/json?address={searchTerm}&key={key}");
-        
-        return Ok(result);
+        bizzSearch.add(s);
+        return Ok();
     }
+
     
 }
 

@@ -46,10 +46,10 @@ public class BizzSearch : IBizzSearch {
     public IEnumerable<Search> getAll() {
         return searches;
     }
-    public Search get(int id) {
+    public Search get(int SearchId) {
         return searches.First(s=> s.SearchId == id);
     }
-    public Search update(int id, Search s){
+    public Search update(int SearchId, Search s){
         Search toUpdate = searches.First(x => x.SearchId == id);
         if(toUpdate != null){
             searches.Remove(toUpdate);
@@ -58,7 +58,7 @@ public class BizzSearch : IBizzSearch {
         }
         return null;
     }
-    public void delete(int id){
+    public void delete(int SearchId){
         Search s = searches.First(x => x.SearchId == id);
         if(s != null){
             searches.Remove(s);
@@ -67,24 +67,10 @@ public class BizzSearch : IBizzSearch {
 }
 /*
 
-// defines elements of each search term
-public class BizzSearch {
-    public int BusinessID;
-    public string searchTerm;
-    public string name;
-    public string imageUrl;
-}
 
 
-// creates link between search results and search result controller
-public interface IBizzSearch {
-    void add(Business b); // create
-    IEnumerable<Business> getAll(); //read
-    Business get(int id); //read
-    IEnumerable<business> search(string name); //look up if ID unknown
-    Business Update(int id, Business b); // edit
-    void delete(int id); // delete
-}
+
+
 
 
 // NEED TO IMPLEMENT THESE METHODS!
