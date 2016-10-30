@@ -57,6 +57,6 @@ using Newtonsoft.Json;
         public IActionResult Delete(int MapId){
             bizzSearch.delete(MapId);
             return RedirectToAction("ReadAll");
-    }
+     }
     
 }

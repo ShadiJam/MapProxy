@@ -42,32 +42,32 @@ public class Map {
 
 
 public class BizzSearch : IBizzSearch {
-    private List<Search> searches = new List<Search>();
+    private List<Map> maps = new List<Map>();
     public BizzSearch() {
-        searches.Add(new Search { searchTerm = "Woodbar"});
+        maps.Add(new Map{ searchTerm = "Woodbar"});
     }
-    public void add(Search s){
-        searches.Add(s);
+    public void add(Map s){
+        maps.Add(s);
     }
-    public IEnumerable<Search> getAll() {
-        return searches;
+    public IEnumerable<Map> getAll() {
+        return maps;
     }
-    public Search get(int SearchId) {
-        return searches.First(s=> s.SearchId == SearchId);
+    public Map get(int MapId) {
+        return maps.First(s=> s.MapId == MapId);
     }
-    public Search update(int SearchId, Search s){
-        Search toUpdate = searches.First(x => x.SearchId == SearchId);
+    public Map update(int MapId, Map s){
+        Map toUpdate = maps.First(x => x.MapId == MapId);
         if(toUpdate != null){
-            searches.Remove(toUpdate);
-            searches.Add(s);
+            maps.Remove(toUpdate);
+            maps.Add(s);
             return s;
         }
         return null;
     }
-    public void delete(int SearchId){
-        Search s = searches.First(x => x.SearchId == SearchId);
+    public void delete(int MapId){
+        Map s = maps.First(x => x.MapId == MapId);
         if(s != null){
-            searches.Remove(s);
+            maps.Remove(s);
         }
     }
 }

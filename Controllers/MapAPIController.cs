@@ -13,15 +13,15 @@ public class MapAPIController : Controller {
    
 
 
-    [HttpGet("{searchTerm}")]
+    [HttpGet]
     // http://localhost:5000/api/maps/Woodbar?size=800x600
     
-    public async Task<IActionResult> Get(string url){ 
+    public async Task<IActionResult> Get(Map s){ 
         string address = "woodbar";
         string key = "AIzaSyBRBZtk0JyJrAzmp2i9DklBHhjvKwoI0JE";
         GeoLocator.SearchRO result = await API.GetData<GeoLocator.SearchRO>($"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={key}");
-        
-        return Ok(result);
+        bizzSearch.add(s);
+        return Ok();
     }
     private IBizzSearch bizzSearch;
     public MapAPIController(IBizzSearch b) {
@@ -51,5 +51,5 @@ public class MapAPIController : Controller {
         }
         return Ok();
         }
-    }
 }
+
