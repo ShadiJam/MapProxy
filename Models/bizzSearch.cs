@@ -36,7 +36,7 @@ public class Map {
          "label = (Map.label)"+
          "locationmap = (Map.locationmap)");
     public Map() {
-        MapId = new Random().Next();
+        int MapId = new Random().Next();
     }
 }
 
@@ -71,28 +71,4 @@ public class BizzSearch : IBizzSearch {
         }
     }
 }
-/*
 
-
-
-
-
-
-
-// NEED TO IMPLEMENT THESE METHODS!
-//implements methods of BizzSearch 
-/*
- public class BizzSearch : IBizzSearch {
-
-     private List<BizzSearch> bizzsearch = new List<BizzSearch>;
-     public BizzSearch() {
-         bizzsearch.Add(new BizzSearch {businessID = 0, searchTerm = "", name = "", imageUrl = "" });
-     }
-     public void add {
-         public IEnumerable<bizzsearch> getAll()
-     }
-     public bizzSearch get {
-         public IEnumerable<bizzSearch> search()
-     }
- }
-*/

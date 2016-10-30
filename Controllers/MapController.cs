@@ -25,7 +25,7 @@ using Newtonsoft.Json;
 
             return View(map);
         }
-    [HttpGet("{MapId}/edit")]
+/*    [HttpGet("{MapId}/edit")]
         public IActionResult Edit(int MapId){
             var s = bizzSearch.get(MapId);
             if(s == null)
@@ -43,20 +43,22 @@ using Newtonsoft.Json;
             bizzSearch.add(map);
             return RedirectToAction("ReadAll");
         }
-    [HttpGet("new")]
+        */
+    [HttpPost("new")]
         public IActionResult Create(){
             return View();
         }
     [HttpPost("new")]
     [ValidateAntiForgeryToken]
-        public IActionResult HandleCreate([FromForm] Map s){
+        public IActionResult HandleCreate([FromForm]Map s){
             bizzSearch.add(s);
             return RedirectToAction("ReadAll");
     }
+    /*
     [HttpPost("delete/{MapId}")]
         public IActionResult Delete(int MapId){
             bizzSearch.delete(MapId);
             return RedirectToAction("ReadAll");
-     }
+     } */
     
 }
