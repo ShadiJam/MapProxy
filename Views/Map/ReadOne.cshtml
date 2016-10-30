@@ -1,0 +1,21 @@
+@model Map
+<div class = "map">
+    <p> imageUrl: <a href="/maps/@(Model.Map/{maps})">@Model.Map.imageUrl</a> </p>
+    <p> timeStamp: @Model.Map.timeStamp </p>
+    <p> searchTerm: @Model.Map.searchTerm </p>
+    <p> zoomLevel: @Model.Map.zoomLevel </p>
+    <p> Size: { </p>
+        <p> width: @Model.Map.width </p>
+        <p> height: @Model.Map.height </p>
+    <p>       },   </p>
+    <p> markers: [ </p>
+    <p>    {       </p>
+    <p>      color: @Model.Map.color </p>
+    <p>      label: @Model.Map.label </p>
+    <p> location: {     </p>
+            <p> lat: @Model.Map.lat </p>
+            <p> lng: @Model.Map.lng </p>
+    <p>         }               </p>
+    <p>     }                   </p>
+    <p>   ]                     </p>
+    <p>}                        </p>
